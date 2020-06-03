@@ -23,6 +23,23 @@ public class CarStaticExample {
     static int carCount;
     int serialNumber;
 
+    //static initialization block
+    // this code will be executed once when the class is loaded
+    // from static code blocks or methods you just can reference other static members or variables
+    static {
+        setCarCount(3);
+    }
+
+    // can have multiple static code blocks and each one will be executed in the order that were declared
+    static {
+        setCarCount(2);
+    }
+
+    // anonymous code block will be executed every time that a new instance is initialize
+    {
+        type = "default";
+    }
+
     /**
      * default constructor
      */
@@ -37,6 +54,8 @@ public class CarStaticExample {
         carCount++;
         serialNumber = carCount;
     }
+
+    static void setCarCount(int count) { carCount = count;}
 
     static void resetCarCount() {
         carCount = 0;
